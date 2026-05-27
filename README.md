@@ -14,4 +14,4 @@ Edit the BASE_DIR global constant in ZubicksScrapApp.py to reflect your installa
 Install the required dependencies using the supplied install scripts.
 Install scripts for Ubuntu based systems and Fedora are provided.
 
-Zubicks Scrap App has been tested on Linux Mint 20, Linux Mint 21, Linux Mint 22, and Fedora 40.
+Zubicks Scrap App has been tested on Linux Mint 20, Linux Mint 21, Linux Mint 22, Lubuntu 26.04 and Fedora 40.
