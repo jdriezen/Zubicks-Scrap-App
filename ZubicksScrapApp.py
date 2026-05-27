@@ -8,11 +8,6 @@ price updates from Zubicks website. """
 
 """ CHANGE LOG
 
-Sunday, September 30, 2024
-    Added ORDER BY DATESTAMP DESC clause to select statement when populating the
-    GTK TreeView.  Records in the scrolled window now appear in descending order,
-    with most recent data first.
-
 Monday July 3, 2023
     Fixed bug where buttons expand when window is maximized.
     Implemented daterange filter function.  The scrolled window now filters data display
@@ -506,7 +501,7 @@ class ZeffsScrapWindow(Gtk.ApplicationWindow):
                     column_types[index] = int
 
             # Get data from database file
-            cursor = connection.execute("SELECT YARD, MATERIAL, PRICE, UNIT, DATESTAMP from PRICES ORDER BY DATESTAMP DESC")
+            cursor = connection.execute("SELECT YARD, MATERIAL, PRICE, UNIT, DATESTAMP from PRICES")
 
             pricelist = cursor.fetchall()
 
@@ -719,7 +714,7 @@ class ZeffsScrapWindow(Gtk.ApplicationWindow):
         hbox_top.pack_start(date_range_label, False, False, 0)
 
         hbox_middle = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-        hbox_middle.set_homogeneous(True)
+        hbox_middle.set_homogeneous(False)
         yard_store = populate_yard_combo()
         self.yard_combo = Gtk.ComboBox.new_with_model(yard_store)
         self.yard_combo.connect("changed", self.on_yard_combo_changed)
@@ -812,7 +807,7 @@ class ZeffsScrapWindow(Gtk.ApplicationWindow):
         aboutdialog.set_program_name("Zubicks Scrap App")
         aboutdialog.set_logo(pixbuf)
         aboutdialog.set_version("0.04")
-        aboutdialog.set_copyright("Copyright \xa9 2021 John Driezen")
+        aboutdialog.set_copyright("Copyright \xa9 2026 John Driezen")
         aboutdialog.set_comments(comments)
         aboutdialog.set_authors(authors)
         aboutdialog.add_credit_section("Code Mentors", mentors)
